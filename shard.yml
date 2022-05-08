@@ -1,0 +1,17 @@
+name: http_crypto_price
+version: 0.1.0
+
+authors:
+  - your-name-here <gokulg4@gmail.com>
+
+targets:
+  http_crypto_price:
+    main: src/http_crypto_price.cr
+
+dependencies:
+  money:
+    github: crystal-money/money
+
+crystal: 1.4.1
+
+license: MIT
