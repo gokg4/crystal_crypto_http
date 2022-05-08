@@ -1,3 +1,5 @@
+![GitHub](https://img.shields.io/github/license/gokg4/crystal_crypto_http)
+
 # http_crypto_price
 
 A simple command line application to check current crypto price using the coingecko api.
