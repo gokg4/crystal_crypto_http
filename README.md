@@ -20,7 +20,7 @@ Once built and compiled you can run from command line using the following comman
 
 ## Development
 
-TODO: Write development instructions here
+<!-- TODO: Write development instructions here -->
 
 ## Contributing
 
