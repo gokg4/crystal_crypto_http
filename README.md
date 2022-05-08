@@ -4,6 +4,8 @@
 
 A simple command line application to check current crypto price using the coingecko api.
 
+Install crystal from the official website [link](https://crystal-lang.org/install/).
+
 ## Installation
 
 Give a Try, clone this repository and run the following command in the terminal.
