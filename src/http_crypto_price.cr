@@ -30,6 +30,7 @@ module HttpCryptoPrice
     gbp = json_response[crypto.downcase]["gbp"].to_s
     gbp_str = gbp.to_f
     gbp_fr = Money.new(gbp_str, "GBP").format
+    puts "\n"
     puts "#{crypto.upcase} price now (#{date.to_s("%b %d, %Y")} #{date.to_s("%r")}),", "INR: #{inr_fr}", "USD: #{usd_fr}", "EUR: #{eur_fr}", "GBP: #{gbp_fr}" 
   else
     puts response.status_code    
