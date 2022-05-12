@@ -17,7 +17,7 @@ module HttpCryptoPrice
     crypto = "bitcoin"
   else
     puts "Please wait...."
-    crypto = crypto.to_s.downcase
+    crypto = crypto.to_s.downcase.sub(" ", "-").sub(" ", "-").sub(" ", "-")
   end
   date = Time.local
   uri_Host = URI.parse "api.coingecko.com"
