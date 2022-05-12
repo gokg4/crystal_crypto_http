@@ -5,7 +5,7 @@ require "uri"
 require "json"
 require "money"
 module HttpCryptoPrice
-  VERSION = "1.0.1"
+  VERSION = "1.0.2"
 
   puts "which crypto price do you want to check? eg: etheruem,bitcoin,tether,usd-coin...etc"
     print "> "
