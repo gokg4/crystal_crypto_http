@@ -4,8 +4,8 @@ require "uri/params"
 require "uri"
 require "json"
 require "money"
-module CrystalHttpTest
-  VERSION = "0.1.0"
+module HttpCryptoPrice
+  VERSION = "1.0.4"
 
   def self.http_request(crypto)
     date = Time.local
