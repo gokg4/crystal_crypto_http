@@ -1,21 +1,27 @@
-# TODO: Write documentation for `HttpCryptoPrice`
+# TODO: Write documentation for `CrystalHttpTest`
 require "http/client"
 require "uri/params"
 require "uri"
 require "json"
 require "money"
-module HttpCryptoPrice
-  VERSION = "1.0.3"
+module CrystalHttpTest
+  VERSION = "0.1.0"
 
   def self.http_request(crypto)
     date = Time.local
     uri_Host = URI.parse "api.coingecko.com"
     uri_Path = URI.parse "/api/v3/simple/price"
+    uri_Path2 = URI.parse "/api/v3/coins/#{crypto}"
     params = URI::Params.encode({"ids" => crypto, "vs_currencies" => ["inr,usd,eur,gbp"]})
     response = HTTP::Client.get URI.new("https", uri_Host.to_s, query: params, path: uri_Path.to_s)
+    response2 = HTTP::Client.get URI.new("https", uri_Host.to_s, query: "", path: uri_Path2.to_s)
+    status_code = response2.status_code
     case
     when
-      response.status_code == 200
+      status_code == 404
+      puts "\n"
+      puts "Error! Try Again"
+    else
       json_response = JSON.parse(response.body)
       inr = json_response[crypto]["inr"].to_s
       inr_str = inr.to_f
@@ -31,8 +37,6 @@ module HttpCryptoPrice
       gbp_fr = Money.new(gbp_str, "GBP").format
       puts "\n"
       puts "#{crypto.upcase} Price Now (#{date.to_s("%b %d, %Y")} #{date.to_s("%r")}),", "INR: #{inr_fr}", "USD: #{usd_fr}", "EUR: #{eur_fr}", "GBP: #{gbp_fr}" 
-    else
-      puts response.status_code
     end
   end
   puts "which crypto price do you want to check? eg: etheruem,bitcoin,tether,usd-coin...etc"
