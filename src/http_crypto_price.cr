@@ -1,9 +1,9 @@
-# TODO: Write documentation for `CrystalHttpTest`
 require "http/client"
 require "uri/params"
 require "uri"
 require "json"
 require "money"
+
 module HttpCryptoPrice
   VERSION = "1.0.5"
 
@@ -16,7 +16,6 @@ module HttpCryptoPrice
     price_response = HTTP::Client.get URI.new("https", uri_Host.to_s, query: params, path: uri_Path.to_s)
     coins_response = HTTP::Client.get URI.new("https", uri_Host.to_s, query: "", path: uri_Path2.to_s)
     status_code = coins_response.status_code
-    # case
     if status_code == 404
       puts "\n"
       puts "Crypto not found! Please check if #{crypto.upcase.gsub("-", " ")} is an existing crypto."
@@ -38,7 +37,6 @@ module HttpCryptoPrice
   puts "which crypto price do you want to check? eg: etheruem,bitcoin,tether,usd-coin...etc"
   print "> "
   crypto = gets
-  # case
   if crypto == ""
     puts "You have not given an input. Check the current value of Bitcoin."
     http_request "bitcoin"
